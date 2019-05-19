@@ -1,34 +1,73 @@
 package pub.cellebi.option
 
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import pub.cellebi.option.basic.BoolValue
 
 class TestOptionSet {
-    val os = OptionSet("testOptionSet", "a test unit");
-
     @Before
     fun setup() {
-        os.apply {
-            postBoolOption("h", false, "this help");
-            postBoolOption("v", false, "show version and exit");
-            postStringOption("cp", "/Users/makhocheung", "set the `classpath`");
-        }
-    }
-
-    @Test
-    fun testShowUsage() {
-        os.showUsage();
     }
 
     @Test
     fun testParseArgs() {
-        os.parseArgs(arrayOf("-h", "-v"))
-        val option = os.find("h");
-        if (option != null) {
-            val boolValue = option.getCustomType(BoolValue::class.java)
-
+        arrayListOf(
+                "testApp --version",
+                "testApp --help",
+                "testApp sayHi --lang 0",
+                "testApp sayHi --lang 1",
+                "testApp sayHi --lang 2",
+                "testApp sayHi --lang 1 --case b"
+        ).forEach {
+            Assert.assertTrue(action(it.split(" ")))
         }
     }
 
+    private fun action(command: List<String>): Boolean {
+        val app = OptionSet("testApp", "a test unit")
+        val command1 = OptionSet("sayHi", "test to say hi in different language")
+        app.apply {
+            postBoolOption("help", false, "show help message")
+            postBoolOption("version", false, "show the test version")
+        }
+        command1.apply {
+            postIntOption("lang", 0, """
+                set the language
+                            0 : chinese
+                            1 : english
+                            2 : japanese
+            """.trimIndent())
+            postStringOption("case", "a", "the case")
+        }
+        if (command.isEmpty()) {
+            return false;
+        }
+        val args = command.subList(1, command.size)
+        app.parseArgs(args.toTypedArray())
+        if (app.hasParsedOption()/* 判断是否有提供的选项 */) {
+            when (app.peekOption().name) {
+                "version" -> println("version : 0.0.1")
+                "help" -> app.showUsage()
+            }
+            return true
+        }
+        val remainArgs = app.remainArguments
+        if (remainArgs.isNotEmpty() && remainArgs[0] == command1.name) {
+            command1.parseArgs(remainArgs.slice(1 until remainArgs.size).toTypedArray())
+            val lang = command1.getIntOption("lang")
+            val case = command1.getStringOption("case").value
+            println(when (lang.value) {
+                0 -> "你好"
+                1 -> if (case == "b") {
+                    "hi".toUpperCase()
+                } else {
+                    "hi"
+                }
+                2 -> "こんにちは"
+                else -> ""
+            })
+            return true
+        }
+        return false
+    }
 }

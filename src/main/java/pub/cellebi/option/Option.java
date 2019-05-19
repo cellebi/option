@@ -1,42 +1,34 @@
 package pub.cellebi.option;
 
-import pub.cellebi.option.basic.*;
+import java.util.Objects;
 
 /**
  * @author makhocheung
  * @see OptionSet
  */
-public class Option<T extends Value> {
+public abstract class Option<T> {
 
     private String name;  //option名
-    private T value;
     private String usage;
     private String defaultVal;
+    private T value;
 
-    public Option(String name, T value, String usage) {
+    protected Option(String name, T value, String usage) {
         this.name = name;
-        this.value = value;
         this.usage = usage;
-        this.defaultVal = value.string();
+        this.value = Objects.requireNonNull(value);
+        this.defaultVal = string(value);
     }
 
-    public void setOptionValue(String strValue) {
-        value.parse(strValue);
+    protected abstract String string(T value);
+
+    protected abstract T parse(String strValue);
+
+    final void setOptionValue(String strValue) {
+        value = parse(strValue);
     }
 
-    public T getOptionValue() {
-        return value;
-    }
-
-    public String getUsage() {
-        return usage;
-    }
-
-    public String getDefaultValue() {
-        return defaultVal;
-    }
-
-    public String quoteUsageValue() {
+    public final String quoteUsageValue() {
         int start = usage.indexOf('`');
         int end = usage.lastIndexOf('`');
         if (start == -1 || start == end) {
@@ -46,27 +38,20 @@ public class Option<T extends Value> {
         }
     }
 
-    public BoolValue getBool() {
-        return (BoolValue) value;
+    public final String getName() {
+        return name;
     }
 
-    public DoubleValue getDouble() {
-        return (DoubleValue) value;
+    public final T getValue() {
+        return value;
     }
 
-    public IntValue getInt() {
-        return (IntValue) value;
+    public String getUsage() {
+        return usage;
     }
 
-    public StringValue getString() {
-        return (StringValue) value;
-    }
-
-    public static <E extends Value> E getCustomType(Class<E> type, Value value) {
-        if (type.isInstance(value)) {
-            return type.cast(value);
-        }
-        return null;
+    public String getDefaultValue() {
+        return defaultVal;
     }
 
 

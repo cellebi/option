@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3abf428f-10fe-49f9-b18b-57e7c5cbd8ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TheTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOption.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/ErrorMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/ErrorMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/Opstions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/Options.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/Option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/BoolValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/BoolValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/DoubleValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/DoubleValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/IntValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/IntValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/StringValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/StringValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/type/BoolOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pub/cellebi/option/type/BoolOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOption.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOption.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOptionSet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOptionSet.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,6 +19,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/option$TestOptionSet_testShowUsage.ic" NAME="TestOptionSet.testShowUsage Coverage Results" MODIFIED="1559883033504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>pub.cellebi.option.*</FILTER>
+    </SUITE>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -82,6 +80,18 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="documentation" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="option" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="option" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -94,75 +104,52 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/Option.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+            <state relative-caret-position="247">
+              <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
               <folding>
-                <element signature="e#662#663#0" expanded="true" />
-                <element signature="e#703#704#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
-                <element signature="e#1080#1081#0" expanded="true" />
-                <element signature="e#1210#1211#0" expanded="true" />
-                <element signature="e#1234#1235#0" expanded="true" />
-                <element signature="e#1231#1232#0" expanded="true" />
-                <element signature="e#1311#1312#0" expanded="true" />
+                <element signature="method#quoteUsageValue#0;class#Option#0" />
+                <element signature="e#1103#1104#0" expanded="true" />
+                <element signature="e#1131#1132#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionSet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="961">
+              <caret line="222" column="63" selection-start-line="222" selection-start-column="63" selection-end-line="222" selection-end-column="63" />
+              <folding>
+                <element signature="docComment;class#OptionSet#0" />
+                <element signature="method#postIntOption#0;class#OptionSet#0" />
+                <element signature="method#postDoubleOption#0;class#OptionSet#0" />
+                <element signature="method#postStringOption#0;class#OptionSet#0" />
+                <element signature="e#2721#2722#0" expanded="true" />
+                <element signature="e#2771#2772#0" expanded="true" />
+                <element signature="e#2961#3043#1" />
+                <element signature="e#3074#3149#1" />
+                <element signature="e#3184#3280#1" />
+                <element signature="e#3232#3270#1" />
+                <element signature="method#getOptionByType#0;class#OptionSet#0" />
+                <element signature="method#setOutput#0;class#OptionSet#0" />
+                <element signature="e#4425#4426#0" expanded="true" />
+                <element signature="method#showUsage#0;class#OptionSet#0" />
+                <element signature="method#showOptionsUsage#0;class#OptionSet#0" />
+                <element signature="e#3956#4392#0" />
+                <element signature="method#showUsage#1;class#OptionSet#0" />
+                <element signature="e#5198#5199#0" expanded="true" />
+                <element signature="e#6682#6683#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/Options.java">
+        <entry file="file://$PROJECT_DIR$/build.gradle.kts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/BoolValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-              <folding>
-                <element signature="e#453#454#0" expanded="true" />
-                <element signature="e#480#481#0" expanded="true" />
-                <element signature="e#426#427#0" expanded="true" />
-                <element signature="e#459#460#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/Value.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOptionSet.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="26" column="34" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="34" />
-              <folding>
-                <element signature="e#28#115#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TheTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="483">
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -170,53 +157,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOption.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+            <state relative-caret-position="276">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/DoubleValue.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/type/BoolOption.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
+            <state relative-caret-position="506">
+              <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
               <folding>
-                <element signature="e#452#453#0" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
+                <element signature="e#451#452#0" expanded="true" />
+                <element signature="e#492#493#0" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#658#659#0" expanded="true" />
+                <element signature="e#706#707#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/IntValue.java">
+        <entry file="file://$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOptionSet.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
-              <folding>
-                <element signature="e#449#450#0" expanded="true" />
-                <element signature="e#476#477#0" expanded="true" />
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#452#453#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/StringValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="20" />
-              <folding>
-                <element signature="e#270#271#0" expanded="true" />
-                <element signature="e#329#330#0" expanded="true" />
-                <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#498#499#0" expanded="true" />
-                <element signature="e#449#450#0" expanded="true" />
-                <element signature="e#484#485#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="326">
+              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -251,23 +219,30 @@
         <option value="$PROJECT_DIR$/src/main/java/pub/ronin/option/OptionException.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/ronin/option/ErrorMsg.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/ronin/option/OptionSet.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/ErrorMsg.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionException.java" />
-        <option value="$PROJECT_DIR$/build.gradle.kts" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOption.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionSet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/Value.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/Opstions.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/BoolValue.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/DoubleValue.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/IntValue.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/StringValue.java" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOptionSet.kt" />
-        <option value="$PROJECT_DIR$/src/test/java/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/Opstions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/Value.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/DoubleOption.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/IntOption.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/StringOption.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TheTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/Option.java" />
+        <option value="$PROJECT_DIR$/src/test/java/MyTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/BoolOption.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/Options.java" />
         <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/Option.java" />
-        <option value="$PROJECT_DIR$/src/test/java/TheTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/type/BoolOption.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/ErrorMsg.java" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOption.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOptionSet.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionSet.java" />
+        <option value="$PROJECT_DIR$/build.gradle.kts" />
       </list>
     </option>
   </component>
@@ -288,6 +263,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -299,6 +275,11 @@
             <path>
               <item name="option" type="b2602c69:ProjectViewProjectNode" />
               <item name="option" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="option" type="b2602c69:ProjectViewProjectNode" />
+              <item name="option" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -306,43 +287,12 @@
               <item name="option" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="option" type="b2602c69:ProjectViewProjectNode" />
-              <item name="option" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="option" type="b2602c69:ProjectViewProjectNode" />
-              <item name="option" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="option" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="option" type="b2602c69:ProjectViewProjectNode" />
-              <item name="option" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="option" type="462c0819:PsiDirectoryNode" />
-              <item name="basic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="option" type="b2602c69:ProjectViewProjectNode" />
               <item name="option" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="option" type="b2602c69:ProjectViewProjectNode" />
-              <item name="option" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="option" type="b2602c69:ProjectViewProjectNode" />
@@ -363,13 +313,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558235748767" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559896852068" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
@@ -386,7 +335,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TheTest.Test">
+  <component name="RunManager" selected="Gradle.option [clean]">
     <configuration name="option [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -406,6 +355,41 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="option [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestOptionSet.testParse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pub.cellebi.option.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pub.cellebi.option.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pub.cellebi.option" />
+      <option name="MAIN_CLASS_NAME" value="pub.cellebi.option.TestOptionSet" />
+      <option name="METHOD_NAME" value="testParse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestOptionSet.testParseArgs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pub.cellebi.option.test" />
       <extension name="coverage">
@@ -422,23 +406,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestOptionSet.testShowUsage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pub.cellebi.option.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pub.cellebi.option.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pub.cellebi.option" />
-      <option name="MAIN_CLASS_NAME" value="pub.cellebi.option.TestOptionSet" />
-      <option name="METHOD_NAME" value="testShowUsage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestOption.testQuoteUsageValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestOption.testCustomOption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pub.cellebi.option.test" />
       <extension name="coverage">
         <pattern>
@@ -448,36 +416,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="pub.cellebi.option" />
       <option name="MAIN_CLASS_NAME" value="pub.cellebi.option.TestOption" />
-      <option name="METHOD_NAME" value="testQuoteUsageValue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TheTest.Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pub.cellebi.option.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TheTest" />
-      <option name="METHOD_NAME" value="Test" />
+      <option name="METHOD_NAME" value="testCustomOption" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.option [clean]" />
       <item itemvalue="JUnit.TestOptionSet.testParseArgs" />
-      <item itemvalue="JUnit.TestOptionSet.testShowUsage" />
-      <item itemvalue="JUnit.TestOption.testQuoteUsageValue" />
-      <item itemvalue="JUnit.TheTest.Test" />
+      <item itemvalue="JUnit.TestOptionSet.testParse" />
+      <item itemvalue="JUnit.TestOption.testCustomOption" />
+      <item itemvalue="Gradle.option [jar]" />
+      <item itemvalue="Gradle.option [clean]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TheTest.Test" />
-        <item itemvalue="JUnit.TestOptionSet.testParseArgs" />
-        <item itemvalue="JUnit.TestOptionSet.testShowUsage" />
-        <item itemvalue="JUnit.TestOption.testQuoteUsageValue" />
         <item itemvalue="Gradle.option [clean]" />
+        <item itemvalue="Gradle.option [jar]" />
+        <item itemvalue="JUnit.TestOptionSet.testParseArgs" />
+        <item itemvalue="JUnit.TestOption.testCustomOption" />
+        <item itemvalue="JUnit.TestOptionSet.testParse" />
       </list>
     </recent_temporary>
   </component>
@@ -493,44 +451,45 @@
       <updated>1558068581573</updated>
       <workItem from="1558068582986" duration="779000" />
       <workItem from="1558092713841" duration="24706000" />
-      <workItem from="1558186351913" duration="14241000" />
+      <workItem from="1558186351913" duration="22971000" />
+      <workItem from="1559882968236" duration="13859000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 00h 21m 50s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 26m 05s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 00h 25m 36s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 26m 32s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 00h 26m 19s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 27m 28s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 00h 30m 39s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 30m 06s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 00h 31m 28s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 34m 16s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 00h 32m 12s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 34m 47s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 00h 33m 08s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 35m 12s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 00h 33m 35s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 35m 24s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 10h 37m 06s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 36m 53s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestOptionSet_testParseArgs - 2019.05.19 at 10h 37m 30s.xml">
+    <history-entry file="TestOptionSet_testParseArgs - 2019.06.07 at 16h 37m 07s.xml">
       <configuration name="TestOptionSet.testParseArgs" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39726000" />
+    <option name="totallyTimeSpent" value="62315000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,10 +501,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848023" visible="true" weight="0.18318966" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49848023" visible="true" weight="0.18536325" />
       <window_info id="Structure" order="1" sideWeight="0.50151974" side_tool="true" weight="0.23397435" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -553,27 +511,28 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32793018" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49928162" weight="0.36034912" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917705" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32790223" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49928162" weight="0.4052953" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.25561097" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32902467" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.27057356" />
+      <window_info anchor="bottom" id="Terminal" order="8" show_stripe_button="false" weight="0.21566632" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007184" side_tool="true" weight="0.18329178" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info active="true" anchor="bottom" id="Messages" order="14" visible="true" weight="0.32917705" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.2729124" />
+      <window_info anchor="right" id="Coverage" sideWeight="0.50133336" side_tool="true" weight="0.18376069" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Maven" order="3" show_stripe_button="false" weight="0.3297414" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.3297414" />
+      <window_info anchor="right" id="Gradle" order="6" sideWeight="0.49933246" visible="true" weight="0.23771368" />
       <window_info anchor="right" id="Database" order="7" show_stripe_button="false" weight="0.3297414" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -589,9 +548,26 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
+        <expression-string>find(optionName);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>parseArg(args, args.get(0))</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>args.size == 2</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>args[0] == &quot;--lang&quot;</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
     <expressions id="watch">
@@ -686,13 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -700,35 +669,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#279#280#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/ErrorMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionException.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/src.zip!/java/lang/reflect/Constructor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle.kts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -775,126 +720,153 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionSet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/DoubleValue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/IntValue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/StringValue.java" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2538">
-          <caret line="156" selection-start-line="156" selection-end-line="156" />
+        <state relative-caret-position="46">
+          <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/BoolValue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/Value.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/TheTest.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/src.zip!/java/lang/SuppressWarnings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MyTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/type/DoubleOption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
-            <element signature="method#postCustomOption#0;class#OptionSet#0" />
-            <element signature="e#2901#2902#0" expanded="true" />
-            <element signature="e#2953#2954#0" expanded="true" />
-            <element signature="method#showOptionsUsage#0;class#OptionSet#0" />
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#210#211#0" expanded="true" />
+            <element signature="e#287#288#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#292#293#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/BoolValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding>
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/DoubleValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
-          <folding>
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/IntValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
-          <folding>
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/StringValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="20" />
-          <folding>
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/basic/Value.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/type/IntOption.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding>
+            <element signature="e#183#184#0" expanded="true" />
+            <element signature="e#206#207#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOption.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/type/StringOption.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        <state relative-caret-position="299">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#210#211#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
+            <element signature="e#204#205#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/Options.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/ErrorMsg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/Option.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+        <state relative-caret-position="247">
+          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
           <folding>
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#703#704#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-            <element signature="e#1234#1235#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
+            <element signature="method#quoteUsageValue#0;class#Option#0" />
+            <element signature="e#1103#1104#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/type/BoolOption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding>
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOption.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/pub/cellebi/option/TestOptionSet.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="34" />
+        <state relative-caret-position="326">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/OptionSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="961">
+          <caret line="222" column="63" selection-start-line="222" selection-start-column="63" selection-end-line="222" selection-end-column="63" />
           <folding>
-            <element signature="e#28#115#0" expanded="true" />
+            <element signature="docComment;class#OptionSet#0" />
+            <element signature="method#postIntOption#0;class#OptionSet#0" />
+            <element signature="method#postDoubleOption#0;class#OptionSet#0" />
+            <element signature="method#postStringOption#0;class#OptionSet#0" />
+            <element signature="e#2721#2722#0" expanded="true" />
+            <element signature="e#2771#2772#0" expanded="true" />
+            <element signature="e#2961#3043#1" />
+            <element signature="e#3074#3149#1" />
+            <element signature="e#3184#3280#1" />
+            <element signature="e#3232#3270#1" />
+            <element signature="method#getOptionByType#0;class#OptionSet#0" />
+            <element signature="method#setOutput#0;class#OptionSet#0" />
+            <element signature="e#4425#4426#0" expanded="true" />
+            <element signature="method#showUsage#0;class#OptionSet#0" />
+            <element signature="method#showOptionsUsage#0;class#OptionSet#0" />
+            <element signature="e#3956#4392#0" />
+            <element signature="method#showUsage#1;class#OptionSet#0" />
+            <element signature="e#5198#5199#0" expanded="true" />
+            <element signature="e#6682#6683#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TheTest.java">
+    <entry file="file://$PROJECT_DIR$/build.gradle.kts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pub/cellebi/option/Options.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="483">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
         </state>
       </provider>
     </entry>

@@ -1,17 +1,12 @@
 package pub.cellebi.option;
 
-import org.jetbrains.annotations.Nullable;
-import pub.cellebi.option.basic.*;
+import pub.cellebi.option.type.*;
 
-import java.io.BufferedWriter;
 import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.Writer;
 import java.lang.reflect.Constructor;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-import java.util.stream.IntStream;
 
 /**
  * <p>
@@ -30,7 +25,10 @@ public class OptionSet {
 
     private String name; //program name or command name
     private Map<String, Option> postOptions = new HashMap<>();
-    private Map<String, Option> actualOptions = new HashMap<>();
+    /**
+     * 同等级的选项,通过顺序来决定优先级,例如version和help选项
+     **/
+    private Queue<Option> parsedOptions = new LinkedList<>();
     private String[] arguments;
     private PrintStream output = System.out; //system.out or system.err
     private String usage;
@@ -40,16 +38,12 @@ public class OptionSet {
         this.usage = usage;
     }
 
-    public <T extends Value> void postOption(String optionName, T val, String usage) {
-        postOptions.put(optionName, new Option<>(optionName, val, usage));
-    }
-
     @SuppressWarnings("unchecked")
-    public <T extends Value> T postCustomOption(String optionName, String value, String usage, Class<T> valueClass) {
+    public <T extends Option, E> T postCustomOption(String optionName, E value, String usage, Class<T> optionClass, Class<E> valueClass) {
         try {
-            Constructor constructor = valueClass.getConstructor(String.class);
-            T instance = (T) constructor.newInstance(value);
-            postOption(optionName, instance, usage);
+            Constructor constructor = valueClass.getConstructor(String.class, valueClass, String.class);
+            T instance = (T) constructor.newInstance(optionName, value, usage);
+            postOption(optionName, instance);
             return instance;
         } catch (Exception e) {
             //TODO
@@ -58,28 +52,28 @@ public class OptionSet {
         }
     }
 
-    public <T extends Value> void postCustomOption(String optionName, String usage, Supplier<T> supplier) {
-        T suppliedValue = supplier.get();
-        postOption(optionName, suppliedValue, usage);
+    public <T extends Option> void postCustomOption(Supplier<T> supplier) {
+        T supplyOption = supplier.get();
+        postOption(supplyOption.getName(), supplyOption);
     }
 
     public OptionSet postBoolOption(String optionName, Boolean value, String usage) {
-        postOption(optionName, new BoolValue(value), usage);
+        postOption(optionName, new BoolOption(optionName, value, usage));
         return this;
     }
 
     public OptionSet postIntOption(String optionName, Integer value, String usage) {
-        postOption(optionName, new IntValue(value), usage);
+        postOption(optionName, new IntOption(optionName, value, usage));
         return this;
     }
 
     public OptionSet postDoubleOption(String optionName, Double value, String usage) {
-        postOption(optionName, new DoubleValue(value), usage);
+        postOption(optionName, new DoubleOption(optionName, value, usage));
         return this;
     }
 
     public OptionSet postStringOption(String optionName, String value, String usage) {
-        postOption(optionName, new StringValue(value), usage);
+        postOption(optionName, new StringOption(optionName, value, usage));
         return this;
     }
 
@@ -91,50 +85,15 @@ public class OptionSet {
         parseArgs(args);
     }
 
-    @Nullable
     public Option find(String optionName) {
-        return actualOptions.get(optionName);
+        return postOptions.get(optionName);
     }
 
-    public boolean optionIsExist(String optionName) {
-        return actualOptions.containsKey(optionName);
+    /* TODO check and throw exception ??*/
+    public BoolOption getBoolOption(String optionName) {
+        return (BoolOption) find(optionName);
     }
 
-    public Map<String, Option> getActualOptions() {
-        return actualOptions;
-    }
-
-    public OptionSet setOutput(PrintStream output) {
-        this.output = output;
-        return this;
-    }
-
-    public String[] getRemainArguments() {
-        return arguments;
-    }
-
-    public void showUsage() {
-        output.printf("Usage of %s:\t\t%s\n", name, usage);
-        showOptionsUsage();
-    }
-
-    public void showOptionsUsage() {
-        postOptions.forEach((name, option) -> {
-            String quoteVal = option.quoteUsageValue();
-            name += quoteVal.isEmpty() ? "" : ' ' + quoteVal;
-            output.printf(
-                    "\t-%s" + (name.length() < 4 ? "\t\t" : "\n\t\t\t")
-                            + "%s" + ((option.getOptionValue() instanceof BoolValue) ? "" : " (default \"%s\")") + "\n",
-                    name, option.getUsage(), option.getDefaultValue()
-            );
-        });
-    }
-
-    public void showUsage(Consumer<OptionSet> handle) {
-        //TODO
-    }
-
-    /* private methods */
     private void parseArgs(List<String> args) {
         if (args == null) {
             throw new IllegalArgumentException(ErrorMsg.ARGS_INVALID);
@@ -151,6 +110,74 @@ public class OptionSet {
         }
         this.arguments = args.toArray(new String[0]);
     }
+
+    public DoubleOption getDoubleOption(String optionName) {
+        return (DoubleOption) find(optionName);
+    }
+
+    public IntOption getIntOption(String optionName) {
+        return (IntOption) find(optionName);
+    }
+
+    public StringOption getStringOption(String optionName) {
+        return (StringOption) find(optionName);
+    }
+
+    public <T extends Option> T getOptionByType(String optionName, Class<T> optionType) {
+        return optionType.cast(find(optionName));
+    }
+
+    public boolean optionIsExist(String optionName) {
+        return postOptions.containsKey(optionName);
+    }
+
+    public Map<String, Option> getActualOptions() {
+        return postOptions;
+    }
+
+    public OptionSet setOutput(PrintStream output) {
+        this.output = output;
+        return this;
+    }
+
+    public String[] getRemainArguments() {
+        return arguments;
+    }
+
+    public Option peekOption() {
+        return parsedOptions.poll();
+    }
+
+    public boolean hasParsedOption() {
+        return !parsedOptions.isEmpty();
+    }
+
+    public void showUsage() {
+        output.printf("Usage of %s:\t\t%s\n", name, usage);
+        showOptionsUsage();
+    }
+
+    private void showOptionsUsage() {
+        postOptions.forEach((name, option) -> {
+            String quoteVal = option.quoteUsageValue();
+            name += quoteVal.isEmpty() ? "" : ' ' + quoteVal;
+            output.printf(
+                    "\t-%s" + (name.length() < 4 ? "\t\t" : "\n\t\t\t")
+                            + "%s" + ((option instanceof BoolOption) ? "" : " (default \"%s\")") + "\n",
+                    name, option.getUsage(), option.getDefaultValue()
+            );
+        });
+    }
+
+    public void showUsage(Consumer<OptionSet> handle) {
+        //TODO
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    /* private method */
 
     private boolean parseArg(List<String> args, String arg) {
         int n = 0;
@@ -170,33 +197,30 @@ public class OptionSet {
             return false;
         }
         int m;
-        if (optionName.contains("=")) {
+        if (!postOptions.containsKey(optionName)) {
+            throw new IllegalArgumentException(ErrorMsg.UNKNOWN_OPTION + ":" + optionName);
+        }
+        Option option = postOptions.get(optionName);
+        if (option instanceof BoolOption) {
             //boolean
-            String[] keyValue = optionName.split("=");
-            optionName = keyValue[0];
-            value = keyValue[1]; //only "true" or "false", otherwise exception occurs
+            value = BoolOption.reverseDefaultValue((BoolOption) option);
             m = 1;
         } else if (args.size() == 1 || args.get(1).startsWith("-")) {
-            //boolean
-            value = "true";
-            m = 1;
+            throw new IllegalArgumentException(ErrorMsg.UNKNOWN_OPTION + " : " + optionName);
         } else {
             value = args.get(1);
             m = 2;
         }
-        if (!postOptions.containsKey(optionName)) {
-            throw new IllegalArgumentException(ErrorMsg.OPTION_NO_EXIST);
-        }
-        Option option = postOptions.get(optionName);
-        if (option.getOptionValue() instanceof BoolValue && m == 2) {
-            throw new IllegalArgumentException(ErrorMsg.BOOL_OPTION_INVALID);
-        }
         option.setOptionValue(value);
-        actualOptions.put(optionName, option);
+        parsedOptions.add(option);
         if (m == 2) {
             args.remove(0);
         }
         args.remove(0);
         return true;
+    }
+
+    private void postOption(String optionName, Option option) {
+        postOptions.put(optionName, option);
     }
 }
