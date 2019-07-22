@@ -8,26 +8,35 @@ import java.util.Objects;
  */
 public abstract class Option<T> {
 
-    private String name;  //option名
-    private String usage;
-    private String defaultVal;
+    private final String name;
+    private final String usage;
+    private final String defaultValue;
     private T value;
 
     protected Option(String name, T value, String usage) {
         this.name = name;
         this.usage = usage;
         this.value = Objects.requireNonNull(value);
-        this.defaultVal = string(value);
+        this.defaultValue = string(value);
     }
 
+    /**
+     * return the string value ot the option value
+     */
     protected abstract String string(T value);
 
+    /**
+     * parse string value which user inputs to the T type
+     */
     protected abstract T parse(String strValue);
 
     final void setOptionValue(String strValue) {
         value = parse(strValue);
     }
 
+    /**
+     * get quote usage value
+     */
     public final String quoteUsageValue() {
         int start = usage.indexOf('`');
         int end = usage.lastIndexOf('`');
@@ -46,12 +55,12 @@ public abstract class Option<T> {
         return value;
     }
 
-    public String getUsage() {
+    final String getUsage() {
         return usage;
     }
 
-    public String getDefaultValue() {
-        return defaultVal;
+    public final String getDefaultValue() {
+        return defaultValue;
     }
 
 

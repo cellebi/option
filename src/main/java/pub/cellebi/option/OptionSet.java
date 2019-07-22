@@ -21,44 +21,37 @@ import java.util.function.Supplier;
  * @see Option
  * @since 0.0.1
  */
-public class OptionSet {
+public final class OptionSet {
 
-    private String name; //program name or command name
-    private Map<String, Option> postOptions = new HashMap<>();
+    private final String name; //program name or command name
+    private final Map<String, Option> postOptions = new HashMap<>();
     /**
      * 同等级的选项,通过顺序来决定优先级,例如version和help选项
      **/
-    private Queue<Option> parsedOptions = new LinkedList<>();
-    private String[] arguments;
+    //private final Queue<Option> parsedOptions = new LinkedList<>();
+    private final String usage;
     private PrintStream output = System.out; //system.out or system.err
-    private String usage;
+    private String[] arguments;
+
 
     public OptionSet(String name, String usage) {
         this.name = name;
         this.usage = usage;
     }
 
-    @SuppressWarnings("unchecked")
-    public <T extends Option, E> T postCustomOption(String optionName, E value, String usage, Class<T> optionClass, Class<E> valueClass) {
-        try {
-            Constructor constructor = valueClass.getConstructor(String.class, valueClass, String.class);
-            T instance = (T) constructor.newInstance(optionName, value, usage);
-            postOption(optionName, instance);
-            return instance;
-        } catch (Exception e) {
-            //TODO
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public <T extends Option> void postCustomOption(Supplier<T> supplier) {
+    public <T extends Option> OptionSet postCustomOption(Supplier<T> supplier) {
         T supplyOption = supplier.get();
         postOption(supplyOption.getName(), supplyOption);
+        return this;
     }
 
-    public OptionSet postBoolOption(String optionName, Boolean value, String usage) {
-        postOption(optionName, new BoolOption(optionName, value, usage));
+    public OptionSet postByteOption(String optionName, Byte value, String usage) {
+        postOption(optionName, new ByteOption(name, value, usage));
+        return this;
+    }
+
+    public OptionSet postShortOption(String optionName, Short value, String usage) {
+        postOption(optionName, new ShortOption(optionName, value, usage));
         return this;
     }
 
@@ -67,8 +60,23 @@ public class OptionSet {
         return this;
     }
 
+    public OptionSet postLongOption(String optionName, Long value, String usage) {
+        postOption(optionName, new LongOption(optionName, value, usage));
+        return this;
+    }
+
+    public OptionSet postFloatOption(String optionName, Float value, String usage) {
+        postOption(optionName, new FloatOption(optionName, value, usage));
+        return this;
+    }
+
     public OptionSet postDoubleOption(String optionName, Double value, String usage) {
         postOption(optionName, new DoubleOption(optionName, value, usage));
+        return this;
+    }
+
+    public OptionSet postBoolOption(String optionName, Boolean value, String usage) {
+        postOption(optionName, new BoolOption(optionName, value, usage));
         return this;
     }
 
@@ -79,44 +87,44 @@ public class OptionSet {
 
     //may throw exception
     //TODO
-    public void parseArgs(String[] argArray) {
+    public OptionSet parseArgs(String[] argArray) {
         List<String> args = new ArrayList<>();
         Collections.addAll(args, argArray);
         parseArgs(args);
+        return this;
     }
 
-    public Option find(String optionName) {
+    private Option find(String optionName) {
         return postOptions.get(optionName);
     }
 
     /* TODO check and throw exception ??*/
-    public BoolOption getBoolOption(String optionName) {
-        return (BoolOption) find(optionName);
+    public ByteOption getByteOption(String optionName) {
+        return (ByteOption) find(optionName);
     }
 
-    private void parseArgs(List<String> args) {
-        if (args == null) {
-            throw new IllegalArgumentException(ErrorMsg.ARGS_INVALID);
-        }
-        if (args.size() == 0) {
-            this.arguments = new String[0];
-            return;
-        }
+    public ShortOption getShortOption(String optionName) {
+        return (ShortOption) find(optionName);
+    }
 
-        while (args.size() != 0) {
-            if (!parseArg(args, args.get(0))) {
-                break;
-            }
-        }
-        this.arguments = args.toArray(new String[0]);
+    public IntOption getIntOption(String optionName) {
+        return (IntOption) find(optionName);
+    }
+
+    public LongOption getLongOption(String optionName) {
+        return (LongOption) find(optionName);
+    }
+
+    public FloatOption getFloatOption(String optionName) {
+        return (FloatOption) find(optionName);
     }
 
     public DoubleOption getDoubleOption(String optionName) {
         return (DoubleOption) find(optionName);
     }
 
-    public IntOption getIntOption(String optionName) {
-        return (IntOption) find(optionName);
+    public BoolOption getBoolOption(String optionName) {
+        return (BoolOption) find(optionName);
     }
 
     public StringOption getStringOption(String optionName) {
@@ -144,13 +152,13 @@ public class OptionSet {
         return arguments;
     }
 
-    public Option peekOption() {
-        return parsedOptions.poll();
-    }
+//    public Option peekOption() {
+//        return parsedOptions.poll();
+//    }
 
-    public boolean hasParsedOption() {
-        return !parsedOptions.isEmpty();
-    }
+//    public boolean hasParsedOption() {
+//        return !parsedOptions.isEmpty();
+//    }
 
     public void showUsage() {
         output.printf("Usage of %s:\t\t%s\n", name, usage);
@@ -180,11 +188,10 @@ public class OptionSet {
     /* private method */
 
     private boolean parseArg(List<String> args, String arg) {
-        int n = 0;
         if (arg.length() < 2 || !arg.startsWith("-")) {
             return false;
         }
-        n++;
+        int n = 1;
         if (arg.startsWith("--")) {
             n++;
             if (arg.length() == 2) {
@@ -212,7 +219,7 @@ public class OptionSet {
             m = 2;
         }
         option.setOptionValue(value);
-        parsedOptions.add(option);
+        //parsedOptions.add(option);
         if (m == 2) {
             args.remove(0);
         }
@@ -222,5 +229,22 @@ public class OptionSet {
 
     private void postOption(String optionName, Option option) {
         postOptions.put(optionName, option);
+    }
+
+    private void parseArgs(List<String> args) {
+        if (args == null) {
+            throw new IllegalArgumentException(ErrorMsg.ARGS_INVALID);
+        }
+        if (args.size() == 0) {
+            this.arguments = new String[0];
+            return;
+        }
+
+        while (args.size() != 0) {
+            if (!parseArg(args, args.get(0))) {
+                break;
+            }
+        }
+        this.arguments = args.toArray(new String[0]);
     }
 }
