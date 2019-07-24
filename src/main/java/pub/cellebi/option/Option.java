@@ -22,11 +22,16 @@ public abstract class Option<T> {
 
     /**
      * return the string value ot the option value
+     *
+     * @param value the specific value of option
+     * @return the string of value
      */
     protected abstract String string(T value);
 
     /**
      * parse string value which user inputs to the T type
+     * @param strValue the string of value
+     * @return the specific value of option
      */
     protected abstract T parse(String strValue);
 
@@ -36,6 +41,7 @@ public abstract class Option<T> {
 
     /**
      * get quote usage value
+     * @return quote usage param name
      */
     public final String quoteUsageValue() {
         int start = usage.indexOf('`');

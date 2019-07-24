@@ -9,6 +9,9 @@ plugins {
 group = "pub.cellebi"
 version = "0.0.1-SNAPSHOT"
 
+ext["developer"] = "Mak Ho Cheung"
+ext["team"] = "Cellebi"
+
 repositories {
     mavenCentral()
 }
@@ -27,14 +30,21 @@ compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
 }
 
+tasks.named<Jar>("jar") {
+    configManifest()
+}
+
 tasks.register<Jar>("sourcesJar") {
+    configManifest()
     archiveClassifier.set("sources")
     from(sourceSets.main.get().allJava)
 }
 
 tasks.register<Jar>("javadocJar") {
+    configManifest()
     archiveClassifier.set("javadoc")
     from(tasks.javadoc.get().destinationDir)
+    dependsOn("javadoc")
 }
 
 publishing {
@@ -45,5 +55,19 @@ publishing {
             artifact(tasks["javadocJar"])
         }
     }
+}
 
+tasks.register("cellebiPublish") {
+    logger.quiet("[gradle-cellebi] publish")
+    group = "publishing"
+    dependsOn("test")
+    dependsOn("publishToMavenLocal")
+}
+
+fun Jar.configManifest() {
+    manifest {
+        attributes("Specification-Team" to ext["team"])
+        attributes("Specification-Developer" to ext["developer"])
+        attributes("Specification-Version" to project.version)
+    }
 }

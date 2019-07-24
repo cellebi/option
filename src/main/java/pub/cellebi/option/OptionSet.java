@@ -3,7 +3,6 @@ package pub.cellebi.option;
 import pub.cellebi.option.type.*;
 
 import java.io.PrintStream;
-import java.lang.reflect.Constructor;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -28,11 +27,9 @@ public final class OptionSet {
     /**
      * 同等级的选项,通过顺序来决定优先级,例如version和help选项
      **/
-    //private final Queue<Option> parsedOptions = new LinkedList<>();
+    private final Queue<String> parsedOptions = new LinkedList<>();
     private final String usage;
     private PrintStream output = System.out; //system.out or system.err
-    private String[] arguments;
-
 
     public OptionSet(String name, String usage) {
         this.name = name;
@@ -87,52 +84,57 @@ public final class OptionSet {
 
     //may throw exception
     //TODO
-    public OptionSet parseArgs(String[] argArray) {
-        List<String> args = new ArrayList<>();
-        Collections.addAll(args, argArray);
-        parseArgs(args);
-        return this;
+    public void parse(List<String> argArray) {
+        if (argArray == null) {
+            throw new IllegalArgumentException(ErrorMsg.ARGS_INVALID);
+        }
+        List<String> args = new ArrayList<>(argArray);
+        while (args.size() != 0) {
+            if (!parseArg(args, args.get(0))) {
+                break;
+            }
+        }
     }
 
-    private Option find(String optionName) {
+    private Option lookup(String optionName) {
         return postOptions.get(optionName);
     }
 
     /* TODO check and throw exception ??*/
     public ByteOption getByteOption(String optionName) {
-        return (ByteOption) find(optionName);
+        return (ByteOption) lookup(optionName);
     }
 
     public ShortOption getShortOption(String optionName) {
-        return (ShortOption) find(optionName);
+        return (ShortOption) lookup(optionName);
     }
 
     public IntOption getIntOption(String optionName) {
-        return (IntOption) find(optionName);
+        return (IntOption) lookup(optionName);
     }
 
     public LongOption getLongOption(String optionName) {
-        return (LongOption) find(optionName);
+        return (LongOption) lookup(optionName);
     }
 
     public FloatOption getFloatOption(String optionName) {
-        return (FloatOption) find(optionName);
+        return (FloatOption) lookup(optionName);
     }
 
     public DoubleOption getDoubleOption(String optionName) {
-        return (DoubleOption) find(optionName);
+        return (DoubleOption) lookup(optionName);
     }
 
     public BoolOption getBoolOption(String optionName) {
-        return (BoolOption) find(optionName);
+        return (BoolOption) lookup(optionName);
     }
 
     public StringOption getStringOption(String optionName) {
-        return (StringOption) find(optionName);
+        return (StringOption) lookup(optionName);
     }
 
     public <T extends Option> T getOptionByType(String optionName, Class<T> optionType) {
-        return optionType.cast(find(optionName));
+        return optionType.cast(lookup(optionName));
     }
 
     public boolean optionIsExist(String optionName) {
@@ -148,17 +150,13 @@ public final class OptionSet {
         return this;
     }
 
-    public String[] getRemainArguments() {
-        return arguments;
+    public String peek() {
+        return parsedOptions.poll();
     }
 
-//    public Option peekOption() {
-//        return parsedOptions.poll();
-//    }
-
-//    public boolean hasParsedOption() {
-//        return !parsedOptions.isEmpty();
-//    }
+    public boolean hasParsedOption() {
+        return !parsedOptions.isEmpty();
+    }
 
     public void showUsage() {
         output.printf("Usage of %s:\t\t%s\n", name, usage);
@@ -219,7 +217,7 @@ public final class OptionSet {
             m = 2;
         }
         option.setOptionValue(value);
-        //parsedOptions.add(option);
+        parsedOptions.add(optionName);
         if (m == 2) {
             args.remove(0);
         }
@@ -229,22 +227,5 @@ public final class OptionSet {
 
     private void postOption(String optionName, Option option) {
         postOptions.put(optionName, option);
-    }
-
-    private void parseArgs(List<String> args) {
-        if (args == null) {
-            throw new IllegalArgumentException(ErrorMsg.ARGS_INVALID);
-        }
-        if (args.size() == 0) {
-            this.arguments = new String[0];
-            return;
-        }
-
-        while (args.size() != 0) {
-            if (!parseArg(args, args.get(0))) {
-                break;
-            }
-        }
-        this.arguments = args.toArray(new String[0]);
     }
 }
